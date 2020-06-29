@@ -17,6 +17,9 @@
 
 
 ## 流程
+
+> 其实主应用流程，不管是 `Vue` 还是 `React` 都差不多
+
 ### 主应用流程(Vue)
 - 启动由 `system.js` 接管，配置 `webpack` 下 `output.libraryTarget` 为 `system`
 
@@ -187,9 +190,7 @@ chainWebpack: config => {
 },
 ```
 
-
-### 1.6 启动 single-spa
-#### 子应用 Appliaction
+### 1.6 子应用 Appliaction
 > **注意！**<br>
 > `DOM` 节点应该一直存在（如果在子应用那里设置了挂载节点 `el` 的话，默认挂载在 `body` 下面），不然放在某个组件下面，第一次进入正常，但是再回来就会报错，找不到 `el` 的那个节点，
 
@@ -213,7 +214,7 @@ export default function singleSpaSetup() {
 }
 ```
 
-#### 子应用 Parcel
+### 1.7 子应用 Parcel
 [官方文档](https://single-spa.js.org/docs/parcels-overview/)
 
 > 翻译过来叫：包裹，可以在主应用将一个子应用当做组件，手动挂载、卸载使用，不限框架，webpack 5 有一个 Module Federation 也是可以跨项目使用组件的，更细粒化
@@ -278,7 +279,7 @@ export const bootstrap = (props: any) => {
 export const { mount, unmount } = singleSpa;
 ```
 
-- 主应用在需要使用子应用的地方
+#### 使用子应用的地方
 
 src\views\SubApp\index.vue
 ```html
